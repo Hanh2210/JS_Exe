@@ -81,6 +81,7 @@ function Validator(options) {
                 inputElement.oninput = function () {
                     var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
                     errorElement.innerText = '';
+		            document.querySelector('.form-submit').classList.remove('disabled');
                     getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
                 }
             });
