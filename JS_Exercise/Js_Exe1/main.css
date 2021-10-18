@@ -92,6 +92,10 @@ body {
     width: 100%;
     flex: 1 0 100%;
     user-select: none;
+} 
+
+.none{
+    display: none;
 }
 
 .slider-item-img {

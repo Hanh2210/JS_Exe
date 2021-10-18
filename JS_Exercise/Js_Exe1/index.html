@@ -22,7 +22,7 @@
             <li class="slider-dot-item" onclick="currentSlide(3)"></li>
             <li class="slider-dot-item" onclick="currentSlide(4)"></li>
             <li class="slider-dot-item" onclick="currentSlide(5)"></li>
-        </ul>
+        </ul> 
         <div class="slider-wrapper">
             <div class="slider-main">
                 <div class="slider-item">
@@ -46,8 +46,8 @@
     </div>
 
     <script>
-        var myIndex = 1;
-        var timeOut;
+        let myIndex = 1;
+        let timeOut;
         makeSlideshow(myIndex);
 
         function changeSlide(n) {
@@ -57,16 +57,18 @@
         function currentSlide(n) {
             makeSlideshow(myIndex = n);
         }
-
+       
         function makeSlideshow(n) {
             const sliderItems = document.querySelectorAll(".slider-item");
             const dotItems = document.querySelectorAll(".slider-dot-item");
             if (n > sliderItems.length) { myIndex = 1 }
             if (n < 1) { myIndex = sliderItems.length }
-            [...sliderItems].forEach(slider => slider.style.display = "none");
-            [...dotItems].forEach(dot => dot.className = dot.className.replace(" active", ""));
-            sliderItems[myIndex - 1].style.display ="block";
-            dotItems[myIndex - 1].className += " active";
+
+           [...sliderItems].forEach(slider => slider.classList.add("none"));
+           [...dotItems].forEach(dot => dot.className = dot.className.replace(" active", ""));
+            sliderItems[myIndex - 1].classList.remove("none");
+            dotItems[myIndex - 1].classList += " active";
+            
             if (timeOut) clearTimeout(timeOut)
             timeOut = setInterval(() => {
                 changeSlide(1)
